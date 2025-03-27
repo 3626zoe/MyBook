@@ -1,7 +1,21 @@
+<<<<<<< HEAD
 
 
 body {
   background-color: #111828;
+=======
+@import "tailwindcss";
+@import "./pages";
+@import "./components";
+@import "daisyui";
+
+html,
+body {
+  font-size: 16px;
+  line-height: 1.6;
+  background-color: #0d1f2d;
+  font-family:"Segoe UI", sans-serif;
+>>>>>>> d51e5b035ccdc795ff48b934dd2ea216a19ee72e
 }
 
 .main-layout {
