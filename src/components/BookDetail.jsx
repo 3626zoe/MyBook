@@ -1,4 +1,4 @@
-import books_reviews from '../json/books_reviews.json';
+import books_reviews from '../json/books.json';
 import { useState } from "react";
 
 export default function BookDetail({ book }) {
@@ -19,42 +19,43 @@ export default function BookDetail({ book }) {
     }
     return (
         <div className="book-detail">
-            <div className="card bg-[#DCDDDF] lg:card-side shadow-sm flex justify-evenly">
+            <div className="card bg-[#DCDDDF] flex flex-col lg:flex-row lg:card-side shadow-sm p-4 sm:p-6 lg:p-8">
                 <figure>
-                    <img src={item.cover} alt={item.title} className="rounded-xl w-full h-98 object-cover" />
+                    <img 
+                        src={item.cover} 
+                        alt={item.title} 
+                        className="rounded-xl w-full sm:w-32 md:w-40 lg:w-48 h-auto object-contain"
+                    />
                 </figure>
-                <div className="card-body pl-20">
-                    <h1 className="card-title text-2xl">{item.title}</h1>
-                    <p className="text-xl text-gray-800 text-left">{item.author}</p>
-                    <p className="text-xl text-left flex-wrap w-200">{item.summary.substring(0, 300)}</p>
-
-                    <button className="btn btn-primary" onClick={BuyingWindow}>Buy Now</button>
+                <div className="card-body pl-4 sm:pl-6 lg:pl-20">
+                    <h1 className="card-title text-3xl + font-semibold text-center lg:text-left text-gray-700">{item.title}</h1>
+                    <p className="text-lg text-gray-800 text-center lg:text-left ">{item.author}</p>
+                    <p className="text-md text-left flex-wrap w-full sm:w-3/4 md:w-2/3 lg:w-2/3 text-orange-500">
+                        {item.summary.substring(0, 300)}
+                    </p>
+    
+                    <button className="btn btn-primary w-full sm:w-auto" onClick={BuyingWindow}>Add To Cart</button>
+    
                     <dialog id="my_modal_1" className="modal">
                         <div className="modal-box h-80 flex flex-col justify-evenly">
-                            <h1 className="font-bold text-lg">I want to buy：{item.title}</h1>
-                            <div className="card-actions w-full flex justify-center pt-15">
-                                <button className="btn btn-primary" onClick={decrement}>
-                                    -
-                                </button>
+                            <h1 className="font-bold text-lg text-center">I want to buy: {item.title}</h1>
+                            <div className="card-actions w-full flex justify-center pt-5">
+                                <button className="btn btn-primary" onClick={decrement}>-</button>
                                 <span className="text-lg font-bold bg-gray-200 px-2 py-1 rounded w-22">{count}</span>
-                                <button className="btn btn-primary" onClick={increment}>
-                                    +
-                                </button>
+                                <button className="btn btn-primary" onClick={increment}>+</button>
                             </div>
-
+    
                             <div className="modal-action flex justify-center">
                                 <form method="dialog">
-                                    {/* if there is a button in form, it will close the modal */}
-                                    <button className="btn center" onclick={handleBuy}>Buy</button>
-                                   
+                                    <button className="btn center btn text-white" style={{ backgroundColor: "#646cffaa" }} onClick={handleBuy}>Buy</button>
                                 </form>
                             </div>
                         </div>
                     </dialog>
-
-
                 </div>
             </div>
         </div>
     )
+    
+
 }

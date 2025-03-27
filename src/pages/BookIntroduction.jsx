@@ -12,7 +12,7 @@ export default function BookIntroduction() {
     return (
         <div className="container mx-auto main-layout">
             <Header
-                title="Welcome to the Book Store"
+                title="Welcome to CHUN Book Store"
                 slogan="The best place to buy your favorite books"
             />
             <BookDetail book={book}/>

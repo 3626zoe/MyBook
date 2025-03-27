@@ -8,7 +8,7 @@ function Home() {
     <div className="container mx-auto main-layout">
       <Header 
         title="Timeless Masterpieces"
-        slogan="Discover the Stories that transcend Time and Inspire Generation"
+        slogan="Welcome to CHUN's Shop! Where Stories Come to Life!"
       />
       <Productlist/>
       <Footer/> 
